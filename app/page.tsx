@@ -1928,7 +1928,7 @@ export default function ChurchWebsite() {
         </footer>
 
         {/* Church Covenant Modal */}
-        <AnimatePresence>
+         <AnimatePresence mode="wait">
           {covenantModalOpen && (
             <motion.div
               initial={{ opacity: 0 }}
@@ -1987,7 +1987,7 @@ export default function ChurchWebsite() {
         </AnimatePresence>
 
         {/* Floating Watch Live Button */}
-        <AnimatePresence>
+         <AnimatePresence mode="wait">
           {showWatchLive && (
             <motion.button
               initial={{ opacity: 0, scale: 0 }}
@@ -2003,7 +2003,7 @@ export default function ChurchWebsite() {
         </AnimatePresence>
 
         {/* Floating Join Our Family Button */}
-        <AnimatePresence>
+         <AnimatePresence mode="wait">
           {showJoinFamily && (
             <motion.button
               initial={{ opacity: 0, x: 100 }}
@@ -2019,7 +2019,7 @@ export default function ChurchWebsite() {
         </AnimatePresence>
 
         {/* Membership Form Modal */}
-        <AnimatePresence>
+         <AnimatePresence mode="wait">
           {membershipFormOpen && (
             <motion.div
               initial={{ opacity: 0 }}
@@ -2251,7 +2251,7 @@ export default function ChurchWebsite() {
         </AnimatePresence>
 
         {/* Back to Top Button */}
-        <AnimatePresence>
+         <AnimatePresence mode="wait">
           {showBackToTop && (
             <motion.button
               initial={{ opacity: 0, scale: 0 }}
