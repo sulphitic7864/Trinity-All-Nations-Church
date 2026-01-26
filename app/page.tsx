@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, JSX } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion/client";
 import {
   Menu,
   X,
