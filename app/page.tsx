@@ -405,34 +405,36 @@ export default function ChurchWebsite() {
             </div>
           </div>
 
-          <AnimatePresence>
-            {mobileMenuOpen && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                className="xl:hidden bg-white border-t border-gray-200"
-              >
-                <div className="px-4 py-3 space-y-1">
-                  {navigationItems.map((item) => (
-                    <button
-                      key={item.id}
-                      onClick={() => scrollToSection(item.id)}
-                      className={`block w-full text-left px-4 py-3 rounded-md text-base font-medium transition-all ${
-                        activeSection === item.id
-                          ? "bg-blue-600 text-white"
-                          : item.id === "giving"
-                            ? "bg-gradient-to-r from-yellow-500 to-yellow-600 text-white"
-                            : "text-gray-700 hover:bg-blue-50"
-                      }`}
-                    >
-                      {item.label}
-                    </button>
-                  ))}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+         <AnimatePresence mode="wait">
+  {mobileMenuOpen && (
+    <motion.div
+      key="mobile-menu"
+      initial={{ opacity: 0, height: 0 }}
+      animate={{ opacity: 1, height: "auto" }}
+      exit={{ opacity: 0, height: 0 }}
+      className="xl:hidden bg-white border-t border-gray-200 overflow-hidden"
+    >
+      <div className="px-4 py-3 space-y-1">
+        {navigationItems.map((item) => (
+          <button
+            key={item.id}
+            onClick={() => scrollToSection(item.id)}
+            className={`block w-full text-left px-4 py-3 rounded-md text-base font-medium transition-all ${
+              activeSection === item.id
+                ? "bg-blue-600 text-white"
+                : item.id === "giving"
+                ? "bg-gradient-to-r from-yellow-500 to-yellow-600 text-white"
+                : "text-gray-700 hover:bg-blue-50"
+            }`}
+          >
+            {item.label}
+          </button>
+        ))}
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
         </nav>
 
         {/* Hero Section */}
