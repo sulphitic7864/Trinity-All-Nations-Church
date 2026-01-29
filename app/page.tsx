@@ -86,7 +86,7 @@ export default function ChurchWebsite() {
       name: "Bishop Theodis Cochran, Jr.",
       title: "Senior Pastor",
       bio: "Leading our congregation with passion, wisdom, and a heart for building a Spirit-led church family",
-      photo: "https://i.imgur.com/o94lsxS.jpg" ,
+      photo: "https://i.imgur.com/o94lsxS.jpg",
     },
     {
       name: "Elder Danielle Martin",
