@@ -389,7 +389,7 @@ export default function ChurchWebsite() {
                             : "text-gray-700 hover:bg-blue-50 hover:text-blue-600"
                       }`}
                     >
-                      {item.label}
+                    {item.label}
                     </button>
                   ))}
                 </div>
