@@ -48,6 +48,7 @@ export default function ChurchWebsite() {
   const [membershipFormOpen, setMembershipFormOpen] = useState(false);
   const [covenantModalOpen, setCovenantModalOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [contactSubject, setContactSubject] = useState("");
 
   const [prayerRequests, setPrayerRequests] = useState([
     {
@@ -85,11 +86,11 @@ export default function ChurchWebsite() {
       name: "Bishop Theodis Cochran, Jr.",
       title: "Senior Pastor",
       bio: "Leading our congregation with passion, wisdom, and a heart for building a Spirit-led church family",
-      photo: "https://i.imgur.com/o94lsxS.jpg",
+      photo: "https://i.imgur.com/o94lsxS.jpg" ,
     },
     {
       name: "Elder Danielle Martin",
-      title: "Digital Ministry & Member Engagement",
+      title: "Digital Ministry & Church Operations",
       bio: "Overseeing digital ministry initiatives and church operational excellence",
       photo: "https://i.imgur.com/deXVPfH.jpg",
     },
@@ -405,36 +406,35 @@ export default function ChurchWebsite() {
             </div>
           </div>
 
-         <AnimatePresence mode="wait">
-  {mobileMenuOpen && (
-    <motion.div
-      key="mobile-menu"
-      initial={{ opacity: 0, height: 0 }}
-      animate={{ opacity: 1, height: "auto" }}
-      exit={{ opacity: 0, height: 0 }}
-      className="xl:hidden bg-white border-t border-gray-200 overflow-hidden"
-    >
-      <div className="px-4 py-3 space-y-1">
-        {navigationItems.map((item) => (
-          <button
-            key={item.id}
-            onClick={() => scrollToSection(item.id)}
-            className={`block w-full text-left px-4 py-3 rounded-md text-base font-medium transition-all ${
-              activeSection === item.id
-                ? "bg-blue-600 text-white"
-                : item.id === "giving"
-                ? "bg-gradient-to-r from-yellow-500 to-yellow-600 text-white"
-                : "text-gray-700 hover:bg-blue-50"
-            }`}
-          >
-            {item.label}
-          </button>
-        ))}
-      </div>
-    </motion.div>
-  )}
-</AnimatePresence>
-
+          <AnimatePresence mode="wait">
+            {mobileMenuOpen && (
+              <motion.div
+                key="mobile-menu"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                className="xl:hidden bg-white border-t border-gray-200 overflow-hidden"
+              >
+                <div className="px-4 py-3 space-y-1">
+                  {navigationItems.map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => scrollToSection(item.id)}
+                      className={`block w-full text-left px-4 py-3 rounded-md text-base font-medium transition-all ${
+                        activeSection === item.id
+                          ? "bg-blue-600 text-white"
+                          : item.id === "giving"
+                            ? "bg-gradient-to-r from-yellow-500 to-yellow-600 text-white"
+                            : "text-gray-700 hover:bg-blue-50"
+                      }`}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </nav>
 
         {/* Hero Section */}
@@ -884,7 +884,7 @@ export default function ChurchWebsite() {
                 </p>
               </div>
 
-              <div className="grid lg:grid-cols-2 gap-8 mb-12">
+              <div className="grid lg:grid-cols-1 gap-8 mb-12">
                 <Card className="shadow-xl border-0">
                   <CardHeader>
                     <CardTitle className="text-2xl text-gray-900">
@@ -947,7 +947,7 @@ export default function ChurchWebsite() {
                   </CardContent>
                 </Card>
 
-                <Card className="shadow-xl border-0">
+                {/* <Card className="shadow-xl border-0">
                   <CardHeader>
                     <CardTitle className="text-2xl text-gray-900">
                       Interactive Bible Quiz
@@ -1061,7 +1061,7 @@ export default function ChurchWebsite() {
                       </div>
                     )}
                   </CardContent>
-                </Card>
+                </Card> */}
               </div>
             </motion.div>
           </div>
@@ -1110,13 +1110,29 @@ export default function ChurchWebsite() {
                           <p className="text-gray-300 mb-6">
                             Stream will appear here during service times
                           </p>
-                          <Button className="bg-blue-600 hover:bg-blue-700">
+                          <Button
+                            onClick={() =>
+                              window.open(
+                                "https://www.facebook.com/profile.php?id=100080512599244",
+                                "_blank",
+                              )
+                            }
+                            className="bg-blue-600 hover:bg-blue-700"
+                          >
                             Watch on Facebook Live
                           </Button>
                         </div>
                       </div>
                       <div className="flex flex-wrap gap-3">
-                        <Button className="bg-blue-600 hover:bg-blue-700 flex-1">
+                        <Button
+                          onClick={() =>
+                            window.open(
+                              "https://www.facebook.com/profile.php?id=100080512599244",
+                              "_blank",
+                            )
+                          }
+                          className="bg-blue-600 hover:bg-blue-700 flex-1"
+                        >
                           <svg
                             className="w-5 h-5 mr-2"
                             fill="currentColor"
@@ -1189,6 +1205,12 @@ export default function ChurchWebsite() {
                     </CardHeader>
                     <CardContent className="space-y-3">
                       <Button
+                        onClick={() =>
+                          window.open(
+                            "https://www.facebook.com/profile.php?id=100080512599244",
+                            "_blank",
+                          )
+                        }
                         variant="outline"
                         className="w-full justify-start border-2 border-gray-300 text-gray-700 hover:bg-blue-50 hover:border-blue-600"
                       >
@@ -1202,6 +1224,12 @@ export default function ChurchWebsite() {
                         Follow on Facebook
                       </Button>
                       <Button
+                        onClick={() =>
+                          window.open(
+                            "https://www.youtube.com/@TrinityAllNationsChurchMemphis",
+                            "_blank",
+                          )
+                        }
                         variant="outline"
                         className="w-full justify-start border-2 border-gray-300 text-gray-700 hover:bg-red-50 hover:border-red-600"
                       >
@@ -1269,7 +1297,7 @@ export default function ChurchWebsite() {
         </section>
 
         {/* Events Section */}
-        <section id="events" className="py-20 bg-white">
+        {/* <section id="events" className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-3">
               Upcoming Events
@@ -1329,7 +1357,7 @@ export default function ChurchWebsite() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Giving Section */}
         <section
@@ -1380,7 +1408,12 @@ export default function ChurchWebsite() {
                       $REBerry1974
                     </p>
                   </div>
-                  <Button className="w-full bg-green-600 hover:bg-green-700 text-white text-base py-6">
+                  <Button
+                    onClick={() =>
+                      window.open("https://cash.app/$REBerry1974", "_blank")
+                    }
+                    className="w-full bg-green-600 hover:bg-green-700 text-white text-base py-6"
+                  >
                     Open CashApp
                   </Button>
                 </CardContent>
@@ -1393,14 +1426,23 @@ export default function ChurchWebsite() {
                     Givelify
                   </CardTitle>
                 </CardHeader>
+
                 <CardContent>
-                  <p className="text-gray-700 mb-6 text-base leading-relaxed">
+                  <p className="mb-6 text-base leading-relaxed text-gray-700">
                     Give securely through Givelify with credit card, debit card,
                     or bank transfer.
                   </p>
-                  <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white text-base py-6">
-                    Give via Givelify
-                  </Button>
+
+                  <a
+                    href="https://giv.li/5are1r"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <Button className="w-full bg-purple-600 py-6 text-base text-white hover:bg-purple-700">
+                      Give via Givelify
+                    </Button>
+                  </a>
                 </CardContent>
               </Card>
 
@@ -1421,9 +1463,16 @@ export default function ChurchWebsite() {
                       trinallnatmbc@aol.com
                     </p>
                   </div>
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-base py-6">
-                    Open Zelle
-                  </Button>
+                  <a
+                    href="mailto:trinallnatmbc@aol.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <Button className="w-full bg-blue-600 py-6 text-base text-white hover:bg-blue-700">
+                      Open Zelle
+                    </Button>
+                  </a>
                 </CardContent>
               </Card>
             </div>
@@ -1504,26 +1553,28 @@ export default function ChurchWebsite() {
                       <div>
                         <Label
                           htmlFor="prayer-category"
-                          className="text-sm text-gray-900 font-medium"
+                          className="text-sm font-medium text-gray-900"
                         >
                           Category
                         </Label>
-                        <Select>
-                          <SelectTrigger
-                            id="prayer-category"
-                            className="mt-2 text-base border-2 border-gray-300"
-                          >
-                            <SelectValue placeholder="Select category" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="health">Health</SelectItem>
-                            <SelectItem value="guidance">Guidance</SelectItem>
-                            <SelectItem value="praise">Praise</SelectItem>
-                            <SelectItem value="family">Family</SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
-                          </SelectContent>
-                        </Select>
+
+                        <select
+                          id="prayer-category"
+                          name="prayerCategory"
+                          className="mt-2 h-10 w-full rounded-md border-2 border-gray-300 px-3 text-base focus:outline-none focus:ring-2 focus:ring-gray-900"
+                          defaultValue=""
+                        >
+                          <option value="" disabled>
+                            Select category
+                          </option>
+                          <option value="health">Health</option>
+                          <option value="guidance">Guidance</option>
+                          <option value="praise">Praise</option>
+                          <option value="family">Family</option>
+                          <option value="other">Other</option>
+                        </select>
                       </div>
+
                       <Button
                         type="submit"
                         className="w-full bg-blue-600 hover:bg-blue-700 text-base py-6"
@@ -1647,36 +1698,23 @@ export default function ChurchWebsite() {
                           className="mt-2 text-base border-2 border-gray-300"
                         />
                       </div>
+
                       <div>
-                        <Label
-                          htmlFor="contact-subject"
-                          className="text-sm text-gray-900 font-medium"
+                        <select
+                          id="contact-subject"
+                          value={contactSubject}
+                          onChange={(e) => setContactSubject(e.target.value)}
+                          className="mt-2 h-10 w-full rounded-md border-2 border-gray-300 px-3 text-base"
                         >
-                          Subject
-                        </Label>
-                        <Select>
-                          <SelectTrigger
-                            id="contact-subject"
-                            className="mt-2 text-base border-2 border-gray-300"
-                          >
-                            <SelectValue placeholder="Select subject" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="general">
-                              General Inquiry
-                            </SelectItem>
-                            <SelectItem value="membership">
-                              Membership
-                            </SelectItem>
-                            <SelectItem value="ministry">
-                              Ministry Involvement
-                            </SelectItem>
-                            <SelectItem value="prayer">
-                              Prayer Request
-                            </SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
-                          </SelectContent>
-                        </Select>
+                          <option value="" disabled>
+                            Select subject
+                          </option>
+                          <option value="general">General Inquiry</option>
+                          <option value="membership">Membership</option>
+                          <option value="ministry">Ministry Involvement</option>
+                          <option value="prayer">Prayer Request</option>
+                          <option value="other">Other</option>
+                        </select>
                       </div>
                       <div>
                         <Label
@@ -1791,6 +1829,12 @@ export default function ChurchWebsite() {
                   </CardHeader>
                   <CardContent className="space-y-3">
                     <Button
+                      onClick={() =>
+                        window.open(
+                          "https://www.facebook.com/profile.php?id=100080512599244",
+                          "_blank",
+                        )
+                      }
                       variant="outline"
                       className="w-full justify-start border-2 border-gray-300 text-gray-700 hover:bg-blue-50 hover:border-blue-600"
                     >
@@ -1804,6 +1848,12 @@ export default function ChurchWebsite() {
                       Follow on Facebook
                     </Button>
                     <Button
+                      onClick={() =>
+                        window.open(
+                          "https://www.youtube.com/@TrinityAllNationsChurchMemphis",
+                          "_blank",
+                        )
+                      }
                       variant="outline"
                       className="w-full justify-start border-2 border-gray-300 text-gray-700 hover:bg-red-50 hover:border-red-600"
                     >
@@ -1928,7 +1978,7 @@ export default function ChurchWebsite() {
         </footer>
 
         {/* Church Covenant Modal */}
-         <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait">
           {covenantModalOpen && (
             <motion.div
               initial={{ opacity: 0 }}
@@ -1987,7 +2037,7 @@ export default function ChurchWebsite() {
         </AnimatePresence>
 
         {/* Floating Watch Live Button */}
-         <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait">
           {showWatchLive && (
             <motion.button
               initial={{ opacity: 0, scale: 0 }}
@@ -2003,7 +2053,7 @@ export default function ChurchWebsite() {
         </AnimatePresence>
 
         {/* Floating Join Our Family Button */}
-         <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait">
           {showJoinFamily && (
             <motion.button
               initial={{ opacity: 0, x: 100 }}
@@ -2019,7 +2069,7 @@ export default function ChurchWebsite() {
         </AnimatePresence>
 
         {/* Membership Form Modal */}
-         <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait">
           {membershipFormOpen && (
             <motion.div
               initial={{ opacity: 0 }}
@@ -2169,48 +2219,34 @@ export default function ChurchWebsite() {
                       <div>
                         <Label
                           htmlFor="member-interest"
-                          className="text-sm text-gray-900 font-medium"
+                          className="text-sm font-medium text-gray-900"
                         >
                           Areas of Interest
                         </Label>
-                        <Select>
-                          <SelectTrigger
-                            id="member-interest"
-                            className="mt-2 text-base border-2 border-gray-300"
-                          >
-                            <SelectValue placeholder="Select ministry interest" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="worship">
-                              Worship Ministry
-                            </SelectItem>
-                            <SelectItem value="youth">
-                              Youth Ministry
-                            </SelectItem>
-                            <SelectItem value="women">
-                              Women&apos;s Ministry
-                            </SelectItem>
-                            <SelectItem value="men">
-                              Men&apos;s Ministry
-                            </SelectItem>
-                            <SelectItem value="outreach">
-                              Outreach Ministry
-                            </SelectItem>
-                            <SelectItem value="hospitality">
-                              Hospitality Ministry
-                            </SelectItem>
-                            <SelectItem value="media">
-                              Media Ministry
-                            </SelectItem>
-                            <SelectItem value="prayer">
-                              Prayer Ministry
-                            </SelectItem>
-                            <SelectItem value="undecided">
-                              Not sure yet
-                            </SelectItem>
-                          </SelectContent>
-                        </Select>
+
+                        <select
+                          id="member-interest"
+                          name="memberInterest"
+                          className="mt-2 h-10 w-full rounded-md border-2 border-gray-300 px-3 text-base focus:outline-none focus:ring-2 focus:ring-gray-900"
+                          defaultValue=""
+                        >
+                          <option value="" disabled>
+                            Select ministry interest
+                          </option>
+                          <option value="worship">Worship Ministry</option>
+                          <option value="youth">Youth Ministry</option>
+                          <option value="women">Women&apos;s Ministry</option>
+                          <option value="men">Men&apos;s Ministry</option>
+                          <option value="outreach">Outreach Ministry</option>
+                          <option value="hospitality">
+                            Hospitality Ministry
+                          </option>
+                          <option value="media">Media Ministry</option>
+                          <option value="prayer">Prayer Ministry</option>
+                          <option value="undecided">Not sure yet</option>
+                        </select>
                       </div>
+
                       <div>
                         <Label
                           htmlFor="member-message"
@@ -2251,7 +2287,7 @@ export default function ChurchWebsite() {
         </AnimatePresence>
 
         {/* Back to Top Button */}
-         <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait">
           {showBackToTop && (
             <motion.button
               initial={{ opacity: 0, scale: 0 }}

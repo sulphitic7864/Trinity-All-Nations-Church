@@ -48,7 +48,7 @@ const SelectContent = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "relative z-50 min-w-[8rem] overflow-hidden rounded-md border border-slate-200 bg-white text-slate-950 shadow-md",
+      " h-100 z-50 min-w-[8rem] overflow-scroll rounded-md border border-slate-200 bg-white text-slate-950 shadow-md",
       className
     )}
     {...props}
